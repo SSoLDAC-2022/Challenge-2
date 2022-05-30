@@ -6,12 +6,7 @@
 **Anticipated workload**: about 20-25 hours per person, which includes time for preparation of the presentation.
 
 ## Learning objectives for this challenge
-To be able to analyse and understand the available datasets. 
-To be able to formulate viable questions related to the challenge.
-To import heterogeneous datasets into a graph database.
-To link diverse datasets.
-To write queries to extract knowledge for the linked dataspace and answer the research questions.
-To present your findings to a technical and non-technical audience.
+[...]
 
 ## Challenge description: 
 Numerous stakeholders are involved in the design of construction projects and they all have specific requirements to all the sub-components of the building. In practice, different designers will typically group building elements or spaces that from their perspective are equivalent to make it easier to specify requirements for the whole batch at once. For example, an architect could specify that there are two types of windows in the project: “narrow windows” and “wide windows” and all geometrical and material properties would be the same for all instances of these groups. But for the indoor climate engineer it would also be relevant to distinguish by orientation and for maintenance they would all be considered equivalent. And as the project progresses, the architect might wish to do a further subdivision based on for example hinge placement (left/right). The grouping depends on the eyes who see and current classification and identification approaches don’t support this in a meaningful way.
