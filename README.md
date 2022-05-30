@@ -13,11 +13,10 @@ Numerous stakeholders are involved in the design of construction projects and th
 
 
 ## Success:
-Inference novel findings from linking socio-economic data with EPC data to highlight the geographical areas (at small area and county level) in greatest need of renovation (lower EPC score with factors from census sources). 
+[...]
 
 Within the coding challenge you will work on the following tasks:
-Examine the existing data and define a suitable set of links for the datasets.
-Develop the scenarios that can help stakeholders to inform decision making, that can improve building energy performance at multi-scale.
+[...]
 
 ## Challenger Research Questions:
 * Can you, with the use of LBD technologies, provide designers with a tool that would allow them to 1) define grouping constraints, 2) specify properties that are relevant for all instances belonging to this group and 3) inherit these new properties to instances. 
