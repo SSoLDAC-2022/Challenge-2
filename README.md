@@ -23,7 +23,7 @@ Numerous stakeholders are involved in the design of construction projects and th
 ## Data Sets available: 
 * [Duplex](https://github.com/LBDserver/resources/tree/main/duplex) (IFC, TTL)
 * [Schependomlaan](https://github.com/buildingSMART/Sample-Test-Files/tree/master/IFC%202x3/Schependomlaan) (IFC, TTL)
-* ... bring your own BIM model
+* ... bring your own BIM model and convert to RDF with the available tools
 
 ## Challenge Instructions
 Bring your laptop.
