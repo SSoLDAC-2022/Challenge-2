@@ -1,0 +1,34 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <https://example.com/>
+PREFIX ifc: <http://ifcowl.openbimstandards.org/IFC2X3_Final#>
+PREFIX inst: <https://web-bim/resources/>
+
+CONSTRUCT{
+    ?uri a ex:ElementGroup ;
+    ?p1 ?v1 ;
+    ?p2 ?v2 .
+    ?win ex:belongsToElementGroup ?uri
+}
+WHERE{
+
+    BIND(ifc:IfcWindow AS ?class)
+
+    BIND(inst:widthPSetRevitTypeDimensions AS ?p1)
+    BIND(inst:heightPSetRevitTypeDimensions AS ?p2)
+
+    {
+        SELECT ?v1 ?v2
+        WHERE {
+            ?win a ?class ;
+            ?p1 ?v1 ;
+            ?p2 ?v2
+        } GROUP BY ?v1 ?v2
+    }
+
+    BIND(IRI(CONCAT("https://example.com/", STRUUID())) AS ?uri)
+
+    ?win a ?class ;
+    ?p1 ?v1 ;
+    ?p2 ?v2
+
+}

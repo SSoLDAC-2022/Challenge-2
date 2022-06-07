@@ -1,0 +1,19 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <https://example.com/>
+PREFIX ifc: <http://ifcowl.openbimstandards.org/IFC2X3_Final#>
+PREFIX inst: <https://web-bim/resources/>
+
+SELECT ?v1 ?v2 (COUNT(?item) AS ?items)
+WHERE{
+
+    # WHAT CLASS?
+    ?item a ifc:IfcWindow .
+
+    # TO BE ADDED BY PROGRAM (ONE PER PROPERTY)
+    ?item inst:widthPSetRevitTypeDimensions ?v1 ;
+    ?item inst:heightPSetRevitTypeDimensions ?v2
+
+    # OPTIONAL FILTERS
+    #FILTER(?v1 < 4)
+
+} GROUP BY ?v1 ?v2
