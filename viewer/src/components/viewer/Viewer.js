@@ -86,7 +86,6 @@ const Viewer = (props) => {
     };
 
     const resetComponentsVisibility = async (e) => {
-      // props.selectedElement(0);
       await createSubset(props.viewer, props.ifcModel.modelID, allIds, true);
     };
 
@@ -104,10 +103,6 @@ const Viewer = (props) => {
 const mapStateToProps = (state) => {
   return {
     viewer: state.viewer.viewer,
-    // selected_element: state.selected_element.parameters,
-    // visibleElements: state.lastVisibleElement.number,
-    // legoBricksDataObject: state.elementsDataObject.dataObject,
-    // maxElementNumber: state.maxElementNumber.number,
     ifcModel: state.ifcModel.ifcModel,
   };
 };
