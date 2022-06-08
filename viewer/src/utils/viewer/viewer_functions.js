@@ -34,4 +34,4 @@ const createSubset = async (viewer, model, ids, removePrevious=false) => {
     });
   }
 
-  export { viewerInitializer, showAllElements, createSubset};
+export { viewerInitializer, showAllElements, createSubset};

@@ -179,7 +179,7 @@ a:hover{
 
 /* Bottom bar */
 .bottombar-div-wrapper{
-    z-index: 15;
+    z-index: 300;
     background: rgba(255, 255, 255, 0.7);
     position: absolute;
     bottom: 65px;
@@ -570,4 +570,35 @@ a:hover{
     width:100%;
     text-align: center;
     top:45vh
+}
+
+.graph_interaction_wrapper{
+    min-height: 30vh;
+    z-index: 25;
+    position: absolute;
+    bottom: 30px;
+    background-color: var(--darkBlueMain);
+    border: 3px solid var(--blue);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.graph_ui_query_window-wrapper{
+    min-width: 50vw;
+    padding: 10px;
+}
+
+.qraph_ui_query_input-wrapper{
+    min-width: 50vw;
+    padding: 10px;
+}
+
+.graph-interaction-input{
+    background-color: rgba(255, 255, 255, 0.7);
+    display: block;
+    width: 50%;
+    position:relative;
+    height: 25vh;
+    float: left;
+    
 }

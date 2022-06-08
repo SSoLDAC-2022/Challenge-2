@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { connect } from "react-redux";
 import DragAndDrop from './DragAndDrop'
-// import { setIfcModel } from "../../actions/viewer_actions/setIfcModel";
+import { setIfcModel } from '../../actions/viewer/setIfcModel';
 import {setFileLoaderVisibility} from "../../actions/file_loader_actions/setFileLoaderVisibility";
 import {setFilePreparingVisibility} from "../../actions/file_loader_actions/setFilePreparingVisibility";
 
@@ -12,7 +12,7 @@ const FileLoader = (props) => {
             let ifcModel = await props.viewer.IFC.loadIfc(acceptedFiles[0], true);
             props.setFileLoaderVisibility(false);
             props.setFilePreparingVisibility(true);
-            // props.setIfcModel(ifcModel);
+            props.setIfcModel(ifcModel);
         }
     }, [props.viewer]);
 
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
   };
 
 export default connect(mapStateToProps, {
-    // setIfcModel,
+    setIfcModel,
     setFileLoaderVisibility,
     setFilePreparingVisibility
   })(FileLoader);
