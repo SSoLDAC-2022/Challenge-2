@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { IFCBEAM, IFCCOLUMN, IFCWALL, IFCSLAB, IFCDOOR, IFCWINDOW, IFCPILE } from "web-ifc";
+import { IFCBEAM, IFCCOLUMN, IFCWALL, IFCSLAB, IFCDOOR, IFCWINDOW, IFCPILE, IFCWALLSTANDARDCASE, IFCFURNISHINGELEMENT } from "web-ifc";
 // import {viewerInitializer, selectElement, resetComponentsVisibility} from '../../utils/viewer/viewer_functions'
-import {viewerInitializer } from '../../utils/viewer/viewer_functions'
+import {viewerInitializer, createSubset} from '../../utils/viewer/viewer_functions'
 import { setViewer } from '../../actions/viewer/setViewer';
 import GraphInteractionWrapper from '../GraphInteractionWrapper';
 
 const Viewer = (props) => {
+
+    const [translator, setTransaltor] = useState(null);
+    const [allIds, setAllIds] = useState([]);
 
     useEffect(() => {
         const assignViewer = async () => {
@@ -22,20 +25,42 @@ const Viewer = (props) => {
         const replace = async () => {
           let ids = await props.viewer.IFC.getAllItemsOfType(props.ifcModel.modelID, IFCBEAM).then(e => e)
           var result;
-          [IFCCOLUMN, IFCDOOR, IFCSLAB, IFCWALL, IFCWINDOW, IFCPILE].forEach(async element => {
+          [IFCCOLUMN, IFCDOOR, IFCSLAB, IFCWALL, IFCWINDOW, IFCPILE, IFCWALLSTANDARDCASE, IFCFURNISHINGELEMENT].forEach(async element => {
             result = await props.viewer.IFC.getAllItemsOfType(props.ifcModel.modelID, element).then(e => e)
             ids.push.apply(ids, result)
           });
-          console.log(ids);
-          
+          setAllIds(ids)
         }
         if(props.ifcModel){
-          replace();
+          replace()
         }
       }, [props.ifcModel]);
 
-    const replaceElementsInModelBySubset = async () => {
-      
+    useEffect(() => {
+      const generateStructure = async () => {
+        await generateTranslactionStructure();
+      }
+      if(props.ifcModel){
+        generateStructure();
+      }
+    }, [allIds])  
+
+    const generateTranslactionStructure = async () => {
+      var promises = [];
+      allIds.forEach(elementId => {
+        promises.push(props.viewer.IFC.getProperties(props.ifcModel.modelID, elementId, true, true).then(e => e));
+      });
+      var x = await Promise.all(promises).then(e => e)
+      var tempDict = {}
+      x.map(e => {tempDict[e.GlobalId.value] = tempDict[e.expressID]})
+      setTransaltor(tempDict);
+      var allElementsIds = Array.from(new Set(allIds));
+      const items = props.viewer.context.items;
+      items.pickableIfcModels = items.pickableIfcModels.filter((model) => model !== props.ifcModel);
+      var subset = await createSubset(props.viewer, props.ifcModel, allElementsIds, true).then(e => e);
+      props.ifcModel.removeFromParent();
+      items.ifcModels[0] = subset;
+      items.pickableIfcModels[0] = subset;
     }
 
     const getSelectedElement = async (viewer) => {
@@ -57,13 +82,18 @@ const Viewer = (props) => {
       }
 
     const selectElement = async () => {
-      var test = await getSelectedElement(props.viewer);
+      await getSelectedElement(props.viewer);
+    };
+
+    const resetComponentsVisibility = async (e) => {
+      // props.selectedElement(0);
+      await createSubset(props.viewer, props.ifcModel.modelID, allIds, true);
     };
 
     return (
         <div className="viewer-component-wrapper">
           <div id="viewer-component"
-            // onContextMenu={resetComponentsVisibility}
+            onContextMenu={resetComponentsVisibility}
             onDoubleClick={selectElement}
             ></div>
             <GraphInteractionWrapper/>
