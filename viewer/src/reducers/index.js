@@ -3,10 +3,14 @@ import { setFileLoaderVisibilityReducer} from "./file_loader_reducers/setFileLoa
 import { setFilePreparingVisibilityReducer } from "./file_loader_reducers/setFilePreparingVisibilityReducer"
 import { setViewerReducer } from "./viewer/setViewerReducer";
 import { setIfcModelReducer } from "./viewer/setIfcModelReducer";
+import {setSelectedElementReducer} from "./viewer/setSelectedElementReducer"
+import { setSessionReducer } from "./viewer/setSessionReducer";
 
 export default combineReducers({
     fileLoaderVisibility: setFileLoaderVisibilityReducer,
     filePreparingVisibility: setFilePreparingVisibilityReducer,
     viewer: setViewerReducer,
     ifcModel: setIfcModelReducer,
+    selectedElement: setSelectedElementReducer,
+    session: setSessionReducer
 });

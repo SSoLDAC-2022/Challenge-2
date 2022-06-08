@@ -6,11 +6,15 @@ import { IFCBEAM, IFCCOLUMN, IFCWALL, IFCSLAB, IFCDOOR, IFCWINDOW, IFCPILE, IFCW
 import {viewerInitializer, createSubset} from '../../utils/viewer/viewer_functions'
 import { setViewer } from '../../actions/viewer/setViewer';
 import GraphInteractionWrapper from '../GraphInteractionWrapper';
+import { setSelectedElement } from '../../actions/viewer/setSelectedElement';
 
 const Viewer = (props) => {
 
     const [translator, setTransaltor] = useState(null);
     const [allIds, setAllIds] = useState([]);
+
+    useEffect(() => {
+    }, [props.selectedElement])
 
     useEffect(() => {
         const assignViewer = async () => {
@@ -61,6 +65,7 @@ const Viewer = (props) => {
       props.ifcModel.removeFromParent();
       items.ifcModels[0] = subset;
       items.pickableIfcModels[0] = subset;
+      console.log(tempDict)
     }
 
     const getSelectedElement = async (viewer) => {
@@ -69,7 +74,8 @@ const Viewer = (props) => {
                                      .then((e) => {console.log(e);return e})
                                      .catch((e) => {console.log(e); return null});
           if (result){
-            var { modelID, id } = result; 
+            var { modelID, id } = result;
+            props.setSelectedElement(id);
             return { modelID, id };
           }
           try{
@@ -104,9 +110,11 @@ const mapStateToProps = (state) => {
   return {
     viewer: state.viewer.viewer,
     ifcModel: state.ifcModel.ifcModel,
+    selectedElement: state.selectedElement.elementId
   };
 };
 
 export default connect(mapStateToProps, {
-    setViewer
+    setViewer,
+    setSelectedElement
 })(Viewer);

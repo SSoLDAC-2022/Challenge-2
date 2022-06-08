@@ -38,7 +38,7 @@ input::-webkit-inner-spin-button {
 }
 
 .tab-title{
-    font-size: 25px;
+    font-size: 24px;
     text-align: center;
     width: 100%;
     padding-top: 10px;
@@ -600,5 +600,10 @@ a:hover{
     position:relative;
     height: 25vh;
     float: left;
-    
+
+}
+
+.session-management{
+    font-size: 20px;
+    float: left;
 }

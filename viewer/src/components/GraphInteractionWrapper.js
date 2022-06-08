@@ -1,6 +1,6 @@
 import React from 'react'
-import NewDataInputWindow from './graph_ui/NewDataInputWindow'
-import QueryWindow from './graph_ui/QueryWindow'
+import NewDataInputWindow from './graph_query/NewDataInputWindow'
+import QueryWindow from './graph_query/QueryWindow'
 
 const GraphInteractionWrapper = () => {
   return (
