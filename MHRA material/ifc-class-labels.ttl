@@ -1,0 +1,585 @@
+@prefix :     <https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL#> .
+@prefix bot:  <https://w3id.org/bot#> .
+@prefix inst: <https://web-bim/resources/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml:  <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+:IfcCableCarrierFitting
+        rdf:type    owl:Class ;
+        rdfs:label  "CableCarrierFitting"@en .
+
+:IfcProjectionElement
+        rdf:type    owl:Class ;
+        rdfs:label  "ProjectionElement"@en .
+
+:IfcDoorStandardCase  rdf:type  owl:Class ;
+        rdfs:label  "DoorStandardCase"@en .
+
+:IfcHeatExchanger  rdf:type  owl:Class ;
+        rdfs:label  "HeatExchanger"@en .
+
+:IfcActuator  rdf:type  owl:Class ;
+        rdfs:label  "Actuator"@en .
+
+:IfcCooledBeam  rdf:type  owl:Class ;
+        rdfs:label  "CooledBeam"@en .
+
+:IfcGeographicElement
+        rdf:type    owl:Class ;
+        rdfs:label  "GeographicElement"@en .
+
+:IfcStackTerminal  rdf:type  owl:Class ;
+        rdfs:label  "StackTerminal"@en .
+
+:IfcFan  rdf:type   owl:Class ;
+        rdfs:label  "Fan"@en .
+
+:IfcCoolingTower  rdf:type  owl:Class ;
+        rdfs:label  "CoolingTower"@en .
+
+:IfcFeatureElement  rdf:type  owl:Class ;
+        rdfs:label  "FeatureElement"@en .
+
+:IfcDistributionFlowElement
+        rdf:type    owl:Class ;
+        rdfs:label  "DistributionFlowElement"@en .
+
+:IfcStructuralCurveReaction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralCurveReaction"@en .
+
+:IfcPort  rdf:type  owl:Class ;
+        rdfs:label  "Port"@en .
+
+:IfcStructuralActivity
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralActivity"@en .
+
+:IfcSpaceHeater  rdf:type  owl:Class ;
+        rdfs:label  "SpaceHeater"@en .
+
+:IfcPipeSegment  rdf:type  owl:Class ;
+        rdfs:label  "PipeSegment"@en .
+
+:IfcFlowTreatmentDevice
+        rdf:type    owl:Class ;
+        rdfs:label  "FlowTreatmentDevice"@en .
+
+:IfcDuctSilencer  rdf:type  owl:Class ;
+        rdfs:label  "DuctSilencer"@en .
+
+:IfcShadingDevice  rdf:type  owl:Class ;
+        rdfs:label  "ShadingDevice"@en .
+
+:IfcSlabStandardCase  rdf:type  owl:Class ;
+        rdfs:label  "SlabStandardCase"@en .
+
+:IfcExternalSpatialStructureElement
+        rdf:type    owl:Class ;
+        rdfs:label  "ExternalSpatialStructureElement"@en .
+
+:IfcFurniture  rdf:type  owl:Class ;
+        rdfs:label  "Furniture"@en .
+
+:IfcUnitaryControlElement
+        rdf:type    owl:Class ;
+        rdfs:label  "UnitaryControlElement"@en .
+
+:IfcFlowStorageDevice
+        rdf:type    owl:Class ;
+        rdfs:label  "FlowStorageDevice"@en .
+
+:IfcOpeningElement  rdf:type  owl:Class ;
+        rdfs:label  "OpeningElement"@en .
+
+:IfcController  rdf:type  owl:Class ;
+        rdfs:label  "Controller"@en .
+
+:IfcStairFlight  rdf:type  owl:Class ;
+        rdfs:label  "StairFlight"@en .
+
+:IfcElementComponent  rdf:type  owl:Class ;
+        rdfs:label  "ElementComponent"@en .
+
+:IfcElement  rdf:type  owl:Class ;
+        rdfs:label  "Element"@en .
+
+:IfcStructuralLinearAction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralLinearAction"@en .
+
+:IfcChimney  rdf:type  owl:Class ;
+        rdfs:label  "Chimney"@en .
+
+:IfcFlowTerminal  rdf:type  owl:Class ;
+        rdfs:label  "FlowTerminal"@en .
+
+:IfcEnergyConversionDevice
+        rdf:type    owl:Class ;
+        rdfs:label  "EnergyConversionDevice"@en .
+
+:IfcFlowInstrument  rdf:type  owl:Class ;
+        rdfs:label  "FlowInstrument"@en .
+
+:IfcDistributionChamberElement
+        rdf:type    owl:Class ;
+        rdfs:label  "DistributionChamberElement"@en .
+
+:IfcMedicalDevice  rdf:type  owl:Class ;
+        rdfs:label  "MedicalDevice"@en .
+
+:IfcStructuralSurfaceAction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralSurfaceAction"@en .
+
+:IfcMemberStandardCase
+        rdf:type    owl:Class ;
+        rdfs:label  "MemberStandardCase"@en .
+
+:IfcSpace  rdf:type  owl:Class ;
+        rdfs:label  "Space"@en .
+
+:IfcAirToAirHeatRecovery
+        rdf:type    owl:Class ;
+        rdfs:label  "AirToAirHeatRecovery"@en .
+
+:IfcCableCarrierSegment
+        rdf:type    owl:Class ;
+        rdfs:label  "CableCarrierSegment"@en .
+
+:IfcProtectiveDeviceTrippingUnit
+        rdf:type    owl:Class ;
+        rdfs:label  "ProtectiveDeviceTrippingUnit"@en .
+
+:IfcFooting  rdf:type  owl:Class ;
+        rdfs:label  "Footing"@en .
+
+:IfcCableSegment  rdf:type  owl:Class ;
+        rdfs:label  "CableSegment"@en .
+
+:IfcCovering  rdf:type  owl:Class ;
+        rdfs:label  "Covering"@en .
+
+:IfcTendonAnchor  rdf:type  owl:Class ;
+        rdfs:label  "TendonAnchor"@en .
+
+:IfcVibrationIsolator
+        rdf:type    owl:Class ;
+        rdfs:label  "VibrationIsolator"@en .
+
+:IfcStructuralCurveAction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralCurveAction"@en .
+
+:IfcMember  rdf:type  owl:Class ;
+        rdfs:label  "Member"@en .
+
+:IfcBuilding  rdf:type  owl:Class ;
+        rdfs:label  "Building"@en .
+
+:IfcAirTerminalBox  rdf:type  owl:Class ;
+        rdfs:label  "AirTerminalBox"@en .
+
+:IfcBurner  rdf:type  owl:Class ;
+        rdfs:label  "Burner"@en .
+
+:IfcFeatureElementAddition
+        rdf:type    owl:Class ;
+        rdfs:label  "FeatureElementAddition"@en .
+
+:IfcStructuralMember  rdf:type  owl:Class ;
+        rdfs:label  "StructuralMember"@en .
+
+:IfcEvaporativeCooler
+        rdf:type    owl:Class ;
+        rdfs:label  "EvaporativeCooler"@en .
+
+:IfcSpatialElement  rdf:type  owl:Class ;
+        rdfs:label  "SpatialElement"@en .
+
+:IfcPlate  rdf:type  owl:Class ;
+        rdfs:label  "Plate"@en .
+
+:IfcInterceptor  rdf:type  owl:Class ;
+        rdfs:label  "Interceptor"@en .
+
+:IfcStructuralSurfaceConnection
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralSurfaceConnection"@en .
+
+:IfcSlabElementedCase
+        rdf:type    owl:Class ;
+        rdfs:label  "SlabElementedCase"@en .
+
+:IfcOpeningStandardCase
+        rdf:type    owl:Class ;
+        rdfs:label  "OpeningStandardCase"@en .
+
+:IfcDamper  rdf:type  owl:Class ;
+        rdfs:label  "Damper"@en .
+
+:IfcPile  rdf:type  owl:Class ;
+        rdfs:label  "Pile"@en .
+
+:IfcAirTerminal  rdf:type  owl:Class ;
+        rdfs:label  "AirTerminal"@en .
+
+:IfcAlarm  rdf:type  owl:Class ;
+        rdfs:label  "Alarm"@en .
+
+:IfcVoidingFeature  rdf:type  owl:Class ;
+        rdfs:label  "VoidingFeature"@en .
+
+:IfcBuildingElementProxy
+        rdf:type    owl:Class ;
+        rdfs:label  "BuildingElementProxy"@en .
+
+:IfcSlab  rdf:type  owl:Class ;
+        rdfs:label  "Slab"@en .
+
+:IfcFlowMeter  rdf:type  owl:Class ;
+        rdfs:label  "FlowMeter"@en .
+
+:IfcLightFixture  rdf:type  owl:Class ;
+        rdfs:label  "LightFixture"@en .
+
+:IfcElectricGenerator
+        rdf:type    owl:Class ;
+        rdfs:label  "ElectricGenerator"@en .
+
+:IfcProxy  rdf:type  owl:Class ;
+        rdfs:label  "Proxy"@en .
+
+:IfcDiscreteAccessory
+        rdf:type    owl:Class ;
+        rdfs:label  "DiscreteAccessory"@en .
+
+:IfcBoiler  rdf:type  owl:Class ;
+        rdfs:label  "Boiler"@en .
+
+:IfcFlowController  rdf:type  owl:Class ;
+        rdfs:label  "FlowController"@en .
+
+:IfcBeamStandardCase  rdf:type  owl:Class ;
+        rdfs:label  "BeamStandardCase"@en .
+
+:IfcWallStandardCase  rdf:type  owl:Class ;
+        rdfs:label  "WallStandardCase"@en .
+
+:IfcWall  rdf:type  owl:Class ;
+        rdfs:label  "Wall"@en .
+
+:IfcStructuralCurveMemberVarying
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralCurveMemberVarying"@en .
+
+:IfcFlowSegment  rdf:type  owl:Class ;
+        rdfs:label  "FlowSegment"@en .
+
+:IfcDistributionControlElement
+        rdf:type    owl:Class ;
+        rdfs:label  "DistributionControlElement"@en .
+
+:IfcCableFitting  rdf:type  owl:Class ;
+        rdfs:label  "CableFitting"@en .
+
+:IfcCompressor  rdf:type  owl:Class ;
+        rdfs:label  "Compressor"@en .
+
+:IfcElectricFlowStorageDevice
+        rdf:type    owl:Class ;
+        rdfs:label  "ElectricFlowStorageDevice"@en .
+
+:IfcColumnStandardCase
+        rdf:type    owl:Class ;
+        rdfs:label  "ColumnStandardCase"@en .
+
+:IfcRamp  rdf:type  owl:Class ;
+        rdfs:label  "Ramp"@en .
+
+:IfcColumn  rdf:type  owl:Class ;
+        rdfs:label  "Column"@en .
+
+:IfcValve  rdf:type  owl:Class ;
+        rdfs:label  "Valve"@en .
+
+:IfcRampFlight  rdf:type  owl:Class ;
+        rdfs:label  "RampFlight"@en .
+
+:IfcElectricMotor  rdf:type  owl:Class ;
+        rdfs:label  "ElectricMotor"@en .
+
+:IfcStructuralPointReaction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralPointReaction"@en .
+
+:IfcTendon  rdf:type  owl:Class ;
+        rdfs:label  "Tendon"@en .
+
+:IfcWasteTerminal  rdf:type  owl:Class ;
+        rdfs:label  "WasteTerminal"@en .
+
+:IfcStructuralSurfaceReaction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralSurfaceReaction"@en .
+
+:IfcBuildingElementPart
+        rdf:type    owl:Class ;
+        rdfs:label  "BuildingElementPart"@en .
+
+:IfcExternalSpatialElement
+        rdf:type    owl:Class ;
+        rdfs:label  "ExternalSpatialElement"@en .
+
+:IfcSwitchingDevice  rdf:type  owl:Class ;
+        rdfs:label  "SwitchingDevice"@en .
+
+:IfcMotorConnection  rdf:type  owl:Class ;
+        rdfs:label  "MotorConnection"@en .
+
+:IfcStructuralReaction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralReaction"@en .
+
+:IfcFilter  rdf:type  owl:Class ;
+        rdfs:label  "Filter"@en .
+
+:IfcElectricDistributionBoard
+        rdf:type    owl:Class ;
+        rdfs:label  "ElectricDistributionBoard"@en .
+
+:IfcCurtainWall  rdf:type  owl:Class ;
+        rdfs:label  "CurtainWall"@en .
+
+:IfcDoor  rdf:type  owl:Class ;
+        rdfs:label  "Door"@en .
+
+:IfcLamp  rdf:type  owl:Class ;
+        rdfs:label  "Lamp"@en .
+
+:IfcRoof  rdf:type  owl:Class ;
+        rdfs:label  "Roof"@en .
+
+:IfcStair  rdf:type  owl:Class ;
+        rdfs:label  "Stair"@en .
+
+:IfcSurfaceFeature  rdf:type  owl:Class ;
+        rdfs:label  "SurfaceFeature"@en .
+
+:IfcPump  rdf:type  owl:Class ;
+        rdfs:label  "Pump"@en .
+
+:IfcSpatialZone  rdf:type  owl:Class ;
+        rdfs:label  "SpatialZone"@en .
+
+:IfcCommunicationsAppliance
+        rdf:type    owl:Class ;
+        rdfs:label  "CommunicationsAppliance"@en .
+
+:IfcCivilElement  rdf:type  owl:Class ;
+        rdfs:label  "CivilElement"@en .
+
+:IfcMechanicalFastener
+        rdf:type    owl:Class ;
+        rdfs:label  "MechanicalFastener"@en .
+
+:IfcStructuralItem  rdf:type  owl:Class ;
+        rdfs:label  "StructuralItem"@en .
+
+:IfcStructuralAction  rdf:type  owl:Class ;
+        rdfs:label  "StructuralAction"@en .
+
+:IfcElectricAppliance
+        rdf:type    owl:Class ;
+        rdfs:label  "ElectricAppliance"@en .
+
+:IfcWindow  rdf:type  owl:Class ;
+        rdfs:label  "Window"@en .
+
+:IfcFlowFitting  rdf:type  owl:Class ;
+        rdfs:label  "FlowFitting"@en .
+
+:IfcSanitaryTerminal  rdf:type  owl:Class ;
+        rdfs:label  "SanitaryTerminal"@en .
+
+:IfcTank  rdf:type  owl:Class ;
+        rdfs:label  "Tank"@en .
+
+:IfcDuctFitting  rdf:type  owl:Class ;
+        rdfs:label  "DuctFitting"@en .
+
+:IfcDistributionPort  rdf:type  owl:Class ;
+        rdfs:label  "DistributionPort"@en .
+
+:IfcAnnotation  rdf:type  owl:Class ;
+        rdfs:label  "Annotation"@en .
+
+:IfcStructuralPointAction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralPointAction"@en .
+
+:IfcStructuralCurveConnection
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralCurveConnection"@en .
+
+:IfcEngine  rdf:type  owl:Class ;
+        rdfs:label  "Engine"@en .
+
+:IfcJunctionBox  rdf:type  owl:Class ;
+        rdfs:label  "JunctionBox"@en .
+
+:IfcFlowMovingDevice  rdf:type  owl:Class ;
+        rdfs:label  "FlowMovingDevice"@en .
+
+:IfcPlateStandardCase
+        rdf:type    owl:Class ;
+        rdfs:label  "PlateStandardCase"@en .
+
+:IfcRailing  rdf:type  owl:Class ;
+        rdfs:label  "Railing"@en .
+
+:IfcStructuralConnection
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralConnection"@en .
+
+:IfcElectricTimeControl
+        rdf:type    owl:Class ;
+        rdfs:label  "ElectricTimeControl"@en .
+
+:IfcEvaporator  rdf:type  owl:Class ;
+        rdfs:label  "Evaporator"@en .
+
+:IfcVirtualElement  rdf:type  owl:Class ;
+        rdfs:label  "VirtualElement"@en .
+
+:IfcBuildingElement  rdf:type  owl:Class ;
+        rdfs:label  "BuildingElement"@en .
+
+:IfcUnitaryEquipment  rdf:type  owl:Class ;
+        rdfs:label  "UnitaryEquipment"@en .
+
+:IfcReinforcingMesh  rdf:type  owl:Class ;
+        rdfs:label  "ReinforcingMesh"@en .
+
+:IfcChiller  rdf:type  owl:Class ;
+        rdfs:label  "Chiller"@en .
+
+:IfcProtectiveDevice  rdf:type  owl:Class ;
+        rdfs:label  "ProtectiveDevice"@en .
+
+:IfcSite  rdf:type  owl:Class ;
+        rdfs:label  "Site"@en .
+
+:IfcReinforcingBar  rdf:type  owl:Class ;
+        rdfs:label  "ReinforcingBar"@en .
+
+:IfcCoil  rdf:type  owl:Class ;
+        rdfs:label  "Coil"@en .
+
+:IfcFastener  rdf:type  owl:Class ;
+        rdfs:label  "Fastener"@en .
+
+:IfcWindowStandardCase
+        rdf:type    owl:Class ;
+        rdfs:label  "WindowStandardCase"@en .
+
+:IfcBuildingStorey  rdf:type  owl:Class ;
+        rdfs:label  "BuildingStorey"@en .
+
+:IfcFireSuppressionTerminal
+        rdf:type    owl:Class ;
+        rdfs:label  "FireSuppressionTerminal"@en .
+
+:IfcSpatialStructureElement
+        rdf:type    owl:Class ;
+        rdfs:label  "SpatialStructureElement"@en .
+
+:IfcPipeFitting  rdf:type  owl:Class ;
+        rdfs:label  "PipeFitting"@en .
+
+:IfcStructuralSurfaceMember
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralSurfaceMember"@en .
+
+:IfcAudioVisualAppliance
+        rdf:type    owl:Class ;
+        rdfs:label  "AudioVisualAppliance"@en .
+
+:IfcTransportElement  rdf:type  owl:Class ;
+        rdfs:label  "TransportElement"@en .
+
+:IfcBeam  rdf:type  owl:Class ;
+        rdfs:label  "Beam"@en .
+
+:IfcHumidifier  rdf:type  owl:Class ;
+        rdfs:label  "Humidifier"@en .
+
+:IfcGrid  rdf:type  owl:Class ;
+        rdfs:label  "Grid"@en .
+
+:IfcOutlet  rdf:type  owl:Class ;
+        rdfs:label  "Outlet"@en .
+
+:IfcStructuralPointConnection
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralPointConnection"@en .
+
+:IfcSolarDevice  rdf:type  owl:Class ;
+        rdfs:label  "SolarDevice"@en .
+
+:IfcFurnishingElement
+        rdf:type    owl:Class ;
+        rdfs:label  "FurnishingElement"@en .
+
+:IfcSensor  rdf:type  owl:Class ;
+        rdfs:label  "Sensor"@en .
+
+:IfcStructuralSurfaceMemberVarying
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralSurfaceMemberVarying"@en .
+
+:IfcTubeBundle  rdf:type  owl:Class ;
+        rdfs:label  "TubeBundle"@en .
+
+:IfcCondenser  rdf:type  owl:Class ;
+        rdfs:label  "Condenser"@en .
+
+:IfcStructuralCurveMember
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralCurveMember"@en .
+
+:IfcDuctSegment  rdf:type  owl:Class ;
+        rdfs:label  "DuctSegment"@en .
+
+:IfcTransformer  rdf:type  owl:Class ;
+        rdfs:label  "Transformer"@en .
+
+:IfcElementAssembly  rdf:type  owl:Class ;
+        rdfs:label  "ElementAssembly"@en .
+
+:IfcWallElementedCase
+        rdf:type    owl:Class ;
+        rdfs:label  "WallElementedCase"@en .
+
+:IfcDistributionElement
+        rdf:type    owl:Class ;
+        rdfs:label  "DistributionElement"@en .
+
+:IfcFeatureElementSubtraction
+        rdf:type    owl:Class ;
+        rdfs:label  "FeatureElementSubtraction"@en .
+
+:IfcStructuralPlanarAction
+        rdf:type    owl:Class ;
+        rdfs:label  "StructuralPlanarAction"@en .
+
+:IfcReinforcingElement
+        rdf:type    owl:Class ;
+        rdfs:label  "ReinforcingElement"@en .
+
+:IfcSystemFurnitureElement
+        rdf:type    owl:Class ;
+        rdfs:label  "SystemFurnitureElement"@en .
