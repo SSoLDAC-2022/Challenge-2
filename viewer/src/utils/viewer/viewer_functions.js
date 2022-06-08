@@ -1,10 +1,11 @@
 import { IfcViewerAPI } from "web-ifc-viewer";
 
+
 const viewerInitializer = async () => {
     const container = document.getElementById("viewer-component");
     const viewerLocal = new IfcViewerAPI({ container });
     viewerLocal.addGrid();
-    viewerLocal.IFC.setWasmPath("../../../static/wasm/");
+    viewerLocal.IFC.setWasmPath("../../../../static/wasm/");
     viewerLocal.IFC.loader.ifcManager.applyWebIfcConfig({
       COORDINATE_TO_ORIGIN: true,
       USE_FAST_BOOLS: false,
