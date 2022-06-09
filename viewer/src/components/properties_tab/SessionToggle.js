@@ -10,6 +10,7 @@ const SessionToggle = (props) => {
         </div>
     )
 }
+
 const mapStateToProps = (state) => {
     return {
         isOpen: state.session.isOpen
