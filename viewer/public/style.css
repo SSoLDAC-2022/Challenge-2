@@ -606,4 +606,7 @@ a:hover{
 .session-management{
     font-size: 20px;
     float: left;
+    display: block;
+    min-width: 30px;
+    min-height: 30px;
 }

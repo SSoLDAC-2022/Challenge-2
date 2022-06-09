@@ -9,7 +9,7 @@ const ElementPropertiesTab = (props) => {
 
   useEffect(() => {
       createPropertiesDict()
-      console.log('new component');
+      // send a query to map props with graphDB
   }, [props.selectedElement]);
 
   const createPropertiesDict = async () => {
@@ -25,7 +25,6 @@ const ElementPropertiesTab = (props) => {
           temporaryListOfElements.push(ElementPropertyRow(`${key}.${i}`, 
           e.HasProperties[i].Name.value, 
           e.HasProperties[i].NominalValue.value))
-          console.log(e.HasProperties[i]);
         }
       });
     }

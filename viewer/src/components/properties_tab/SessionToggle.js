@@ -3,12 +3,12 @@ import { setSession } from '../../actions/setSession'
 import { connect } from 'react-redux'
 
 const SessionToggle = (props) => {
-  return (
-    <div className='session-management'
-         onClick={setSession(!props.isOpen)}>
-        <i className={props.isOpen?"lock open icon":"lock icon"}></i>
-    </div>
-  )
+
+    return (
+        <div className='session-management' onClick={() => {props.setSession(!props.isOpen)}}>
+            <i className={props.isOpen?"lock open icon":"lock icon"}></i>
+        </div>
+    )
 }
 const mapStateToProps = (state) => {
     return {

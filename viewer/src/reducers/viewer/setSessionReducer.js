@@ -5,7 +5,7 @@ const INITIAL_STATE = {
 const setSessionReducer = (state = INITIAL_STATE, action) => {
     switch (action.type)
     {
-        case 'SET_SELECTED_ELEMENT':
+        case 'SET_SESSION_STATUS':
             return {...state, isOpen : action.payload};
         default:
             return state;

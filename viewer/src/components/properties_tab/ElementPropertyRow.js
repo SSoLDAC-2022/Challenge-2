@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ElementPropertyRow = (key, name, value) => {
+const ElementPropertyRow = (key, name, value, graphDB_property=null) => {
   return (<div className = "property-line-wrapper"
                key={`${key}`}>
             <div className='property-title'>
