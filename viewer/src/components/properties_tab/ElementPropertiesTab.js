@@ -5,12 +5,16 @@ import SessionToggle from './SessionToggle';
 
 const ElementPropertiesTab = (props) => {
 
-  const [parameters, setParameters] = useState([]);
+  const [rows, setRows] = useState([]);
 
   useEffect(() => {
       createPropertiesDict()
       // send a query to map props with graphDB
   }, [props.selectedElement]);
+
+  const onClick = () => {
+    console.log(onClick);
+  };
 
   const createPropertiesDict = async () => {
     var temporaryListOfElements = []
@@ -22,13 +26,15 @@ const ElementPropertiesTab = (props) => {
       properties.map(e => {
         key++;
         for (let i = 0; i < e.HasProperties.length; i++) {
-          temporaryListOfElements.push(ElementPropertyRow(`${key}.${i}`, 
+          temporaryListOfElements.push(
+            ElementPropertyRow(`${key}.${i}`, 
           e.HasProperties[i].Name.value, 
-          e.HasProperties[i].NominalValue.value))
+          e.HasProperties[i].NominalValue.value)
+          )
         }
       });
     }
-    setParameters(temporaryListOfElements)
+    setRows(temporaryListOfElements)
   };
 
   return (
@@ -38,7 +44,7 @@ const ElementPropertiesTab = (props) => {
         <SessionToggle/>
       </div>
       <div className='parameters-wrapper'>
-        {parameters.map(e => {return e})}
+        {rows.map(e => {return e})}
       </div>
     </div>
   )

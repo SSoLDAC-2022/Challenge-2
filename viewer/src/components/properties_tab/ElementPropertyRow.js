@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const ElementPropertyRow = (key, name, value, graphDB_property=null) => {
+const ElementPropertyRow = (key, name, value) => {
+
   return (<div className = "property-line-wrapper"
                key={`${key}`}>
             <div className='property-title'>

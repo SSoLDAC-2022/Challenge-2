@@ -137,9 +137,18 @@ input::-webkit-inner-spin-button {
     border-bottom: 1px solid var(--blue);
 }
 
+.tab-active-selection{
+    padding: 5px 10px;
+    margin: 5px 0px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--blue);
+    background-color: var(--darkBlueMain);
+}
+
 .property-line-wrapper:last-child{
     border-bottom: none;
 }
+
 
 .property-title{
     font-size: 14px;
