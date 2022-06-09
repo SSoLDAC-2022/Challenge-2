@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const send_post_query = async (queryString) => {
     const baseURL = "http://localhost:7200/repositories/Ldac"
     const params = new URLSearchParams()
@@ -13,7 +12,7 @@ const send_post_query = async (queryString) => {
             'Access-Control-Allow-Origin': '*'
         }
     }
-    await axios.post(baseURL, params, config).then((result) => {console.log(result)}).catch((err) => {console.log(err)})
+    return await axios.post(baseURL, params, config).then(e => e).catch((err) => {console.log(err)})
 }
 
 export {send_post_query}

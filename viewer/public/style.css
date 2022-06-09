@@ -621,10 +621,15 @@ a:hover{
 }
 
 .querrySendButton{
-    min-width: 20%;
+    min-width: 25%;
+    max-width: 25%;
     min-height: 20px;
+    max-height: 20px;
     z-index: 300;
     background-color: var(--blurOrange);
     font-weight: 500;
     text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 15vw
 }

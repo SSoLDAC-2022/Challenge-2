@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 
-const NewDataInputWindow = () => {
+const NewDataInputWindow = (props) => {
 
   const [input, setInput] = useState('')
+
+  useEffect(() => {
+    setInput(props.message)
+  }, [props.message])
 
   return (
     <div>
@@ -15,4 +20,10 @@ const NewDataInputWindow = () => {
   )
 }
 
-export default NewDataInputWindow
+const mapStateToProps = (state) => {
+  return {
+    message: state.outputMessage.message
+  }
+}
+
+export default connect(mapStateToProps, {})(NewDataInputWindow)

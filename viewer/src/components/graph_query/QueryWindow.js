@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import {send_post_query} from '../../API/GraphConnector'
+import { setQueryOutput } from '../../actions/queries/setQueryOutput'
 
-const QueryWindow = () => {
+const QueryWindow = (props) => {
 
   const [input, setInput] = useState(`PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ex: <https://example.com/>
@@ -16,9 +18,10 @@ WHERE {
     console.log(input)
   },[input])
 
-  const sendRequest = () => {
-    // var resp = send_post_query(input).then(e => e)
-    console.log('click')
+  const sendRequest = async () => {
+    var resp = await send_post_query(input).then(e => e)
+    console.log(resp.data.results.bindings)
+    props.setQueryOutput(resp.data.results.bindings)
   }
 
   return (
@@ -30,10 +33,10 @@ WHERE {
                  onChange={(e) => {setInput(e.target.value)}}/>
     <div className='querrySendButton'
          onClick={sendRequest}>
-           QUERRY
+           Send a querry
     </div>
     </div>
   )
 }
 
-export default QueryWindow
+export default connect(null, {setQueryOutput})(QueryWindow)

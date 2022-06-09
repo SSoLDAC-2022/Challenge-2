@@ -5,6 +5,7 @@ import { setViewerReducer } from "./viewer/setViewerReducer";
 import { setIfcModelReducer } from "./viewer/setIfcModelReducer";
 import {setSelectedElementReducer} from "./viewer/setSelectedElementReducer"
 import { setSessionReducer } from "./viewer/setSessionReducer";
+import { setQueryOutputReducer } from "./queries/setQueryOutputReducers";
 
 export default combineReducers({
     fileLoaderVisibility: setFileLoaderVisibilityReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
     viewer: setViewerReducer,
     ifcModel: setIfcModelReducer,
     selectedElement: setSelectedElementReducer,
-    session: setSessionReducer
+    session: setSessionReducer,
+    outputMessage: setQueryOutputReducer
 });

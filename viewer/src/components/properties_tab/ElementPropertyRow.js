@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const ElementPropertyRow = ({key, name, value, isOpen}) => {
 
   const baseClass = 'property-line-wrapper'
-  // 'tab-active-selection'
 
   const [cls, setCls] = useState(baseClass);
 
