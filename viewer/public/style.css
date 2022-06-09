@@ -142,7 +142,7 @@ input::-webkit-inner-spin-button {
     margin: 5px 0px;
     font-size: 14px;
     border-bottom: 1px solid var(--blue);
-    background-color: var(--darkBlueMain);
+    background-color: var(--blurOrange);
 }
 
 .property-line-wrapper:last-child{
@@ -618,4 +618,13 @@ a:hover{
     display: block;
     min-width: 30px;
     min-height: 30px;
+}
+
+.querrySendButton{
+    min-width: 20%;
+    min-height: 20px;
+    z-index: 300;
+    background-color: var(--blurOrange);
+    font-weight: 500;
+    text-align: center;
 }

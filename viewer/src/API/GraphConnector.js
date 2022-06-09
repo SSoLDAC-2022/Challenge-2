@@ -16,6 +16,6 @@ const send_post_query = async (queryString) => {
     await axios.post(baseURL, params, config).then((result) => {console.log(result)}).catch((err) => {console.log(err)})
 }
 
-export default {send_post_query}
+export {send_post_query}
 
 

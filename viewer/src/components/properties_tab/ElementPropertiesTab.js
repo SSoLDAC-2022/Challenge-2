@@ -9,12 +9,8 @@ const ElementPropertiesTab = (props) => {
 
   useEffect(() => {
       createPropertiesDict()
-      // send a query to map props with graphDB
-  }, [props.selectedElement]);
+  }, [props.selectedElement, props.isOpen]);
 
-  const onClick = () => {
-    console.log(onClick);
-  };
 
   const createPropertiesDict = async () => {
     var temporaryListOfElements = []
@@ -22,15 +18,15 @@ const ElementPropertiesTab = (props) => {
       var properties = await props.viewer.IFC.loader.ifcManager.getPropertySets(0, props.selectedElement, true)
                                                                .then(e => {return e});
       var key = 0;
-      
       properties.map(e => {
         key++;
         for (let i = 0; i < e.HasProperties.length; i++) {
           temporaryListOfElements.push(
-            ElementPropertyRow(`${key}.${i}`, 
-          e.HasProperties[i].Name.value, 
-          e.HasProperties[i].NominalValue.value)
-          )
+            <ElementPropertyRow key={`${key}.${i}`}
+                                name={e.HasProperties[i].Name.value} 
+                                value={e.HasProperties[i].NominalValue.value}
+                                isOpen={props.isOpen}/>                   
+            )
         }
       });
     }
@@ -44,7 +40,7 @@ const ElementPropertiesTab = (props) => {
         <SessionToggle/>
       </div>
       <div className='parameters-wrapper'>
-        {rows.map(e => {return e})}
+        {rows}
       </div>
     </div>
   )
@@ -53,6 +49,7 @@ const ElementPropertiesTab = (props) => {
 const mapStateToProps = (state) => {
   return {viewer: state.viewer.viewer,
           selectedElement: state.selectedElement.elementId,
+          isOpen: state.session.isOpen
           }
 }
 
