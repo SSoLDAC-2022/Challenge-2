@@ -5,18 +5,15 @@ import { setQueryOutput } from '../../actions/queries/setQueryOutput'
 
 const QueryWindow = (props) => {
 
-  const [input, setInput] = useState(`PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX ex: <https://example.com/>
-PREFIX ifc: <http://ifcowl.openbimstandards.org/IFC2X3_Final#>
-PREFIX inst: <https://web-bim/resources/>
-SELECT * 
-WHERE {
-    ?item a ifc:IfcWindow .
-}`)
+  const [input, setInput] = useState('');
 
   useEffect(() => {
-    console.log(input)
-  },[input])
+    if (props.query){
+      setInput(props.query)
+    }
+  }, [props.query])
+
+
 
   const sendRequest = async () => {
     var resp = await send_post_query(input).then(e => e)
@@ -39,4 +36,11 @@ WHERE {
   )
 }
 
-export default connect(null, {setQueryOutput})(QueryWindow)
+const mapStateToProps = (state) => {
+  return {
+    query: state.query.message
+  }
+}
+
+
+export default connect(mapStateToProps, {setQueryOutput})(QueryWindow)

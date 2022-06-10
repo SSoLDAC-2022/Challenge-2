@@ -17,6 +17,8 @@ const ElementPropertiesTab = (props) => {
     if (props.selectedElement){
       var properties = await props.viewer.IFC.loader.ifcManager.getPropertySets(0, props.selectedElement, true)
                                                                .then(e => {return e});
+      console.log(properties);
+      console.log(props.viewer.IFC.loader.ifcManager);
       var key = 0;
       properties.map(e => {
         key++;
