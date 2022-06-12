@@ -1,0 +1,123 @@
+import React, { useState } from 'react'
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { IFCSPACE, IFCBEAM, IFCCOLUMN, IFCWALL, IFCSLAB, IFCDOOR, IFCWINDOW, IFCPILE, IFCWALLSTANDARDCASE, IFCFURNISHINGELEMENT } from "web-ifc";
+// import {viewerInitializer, selectElement, resetComponentsVisibility} from '../../utils/viewer/viewer_functions'
+import {viewerInitializer, createSubset} from '../../utils/viewer/viewer_functions'
+import { setViewer } from '../../actions/viewer/setViewer';
+import GraphInteractionWrapper from '../GraphInteractionWrapper';
+import { setSelectedElement } from '../../actions/viewer/setSelectedElement';
+import { setParametersTranslator } from '../../actions/viewer/setParametersTranslator';
+
+const Viewer = (props) => {
+
+    const [allIds, setAllIds] = useState([]);
+
+    useEffect(() => {
+    }, [props.selectedElement])
+
+    useEffect(() => {
+        const assignViewer = async () => {
+            var viewer = await viewerInitializer();
+            
+            props.setViewer(viewer);
+        }
+        assignViewer();
+      }, []);
+
+    useEffect(() => {
+        const replace = async () => {
+          let ids = await props.viewer.IFC.getAllItemsOfType(props.ifcModel.modelID, IFCBEAM).then(e => e)
+          var result;
+          [IFCCOLUMN, IFCDOOR, IFCSLAB, IFCSPACE, IFCWALL, IFCWINDOW, IFCPILE, IFCWALLSTANDARDCASE, IFCFURNISHINGELEMENT].forEach(async element => {
+            result = await props.viewer.IFC.getAllItemsOfType(props.ifcModel.modelID, element).then(e => e)
+            ids.push.apply(ids, result)
+          });
+          setAllIds(ids)
+        }
+        if(props.ifcModel){
+          replace()
+        }
+      }, [props.ifcModel]);
+
+    useEffect(() => {
+      const generateStructure = async () => {
+        await generateTranslatedStructure();
+      }
+      if(props.ifcModel){
+        generateStructure();
+      }
+    }, [allIds])  
+
+
+    const getAllPropertiesOfElementsInModel = async () => {
+      var promises = [];
+      allIds.forEach(elementId => {
+        promises.push(props.viewer.IFC.getProperties(props.ifcModel.modelID, elementId, true, true).then(e => e));
+      });
+      return await Promise.all(promises).then(e => e)
+    }
+
+    const generateTranslatedStructure = async () => {
+      var results = await getAllPropertiesOfElementsInModel();
+      var tempDict = {}
+      results.forEach((e) => {
+        tempDict[e.GlobalId.value] = e.expressID
+      })
+      var allElementsIds = Array.from(new Set(allIds));
+      const items = props.viewer.context.items;
+      items.pickableIfcModels = items.pickableIfcModels.filter((model) => model !== props.ifcModel);
+      var subset = await createSubset(props.viewer, props.ifcModel, allElementsIds, true).then(e => e);
+      props.ifcModel.removeFromParent();
+      items.ifcModels[0] = subset;
+      items.pickableIfcModels[0] = subset;
+      props.setParametersTranslator(tempDict)
+    }
+
+    const getSelectedElement = async (viewer) => {
+        if (viewer) {
+          const result = await viewer.pickIfcItem(false)
+                                     .then((e) => {console.log(e);return e})
+                                     .catch((e) => {console.log(e); return null});
+          if (result){
+            var { modelID, id } = result;
+            props.setSelectedElement(id);
+            return { modelID, id };
+          }
+          try{viewer.unpickIfcItems();}catch(e){console.log(e)}
+          return { modelID: null, id: null };  
+        }
+      }
+
+    const selectElement = async () => {
+      await getSelectedElement(props.viewer);
+    };
+
+    const resetComponentsVisibility = async (e) => {
+      await createSubset(props.viewer, props.ifcModel.modelID, allIds, true);
+    };
+
+    return (
+        <div className="viewer-component-wrapper">
+          <div id="viewer-component"
+            onContextMenu={resetComponentsVisibility}
+            onDoubleClick={selectElement}
+            ></div>
+            <GraphInteractionWrapper/>
+        </div>
+      );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    viewer: state.viewer.viewer,
+    ifcModel: state.ifcModel.ifcModel,
+    selectedElement: state.selectedElement.elementId
+  };
+};
+
+export default connect(mapStateToProps, {
+    setViewer,
+    setSelectedElement,
+    setParametersTranslator
+})(Viewer);

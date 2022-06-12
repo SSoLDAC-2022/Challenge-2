@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: team-2
+    build: 
+      context: .
+      dockerfile: ./viewer/Dockerfile
+    image: team-2
+    ports:
+      - 3001:80
+    environment:
+      - NODE_ENV=development

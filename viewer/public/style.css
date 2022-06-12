@@ -1,0 +1,635 @@
+/* Viewer  */
+:root{
+    --darkBlueMain: #00457C;
+    --blue: #72A2C0;
+    --darkMain: #333232;
+    --darkMain-lighter: #757575;
+    --green: #00743F;
+    --blurOrange: #F18904;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#viewer-component{
+    position: absolute;
+    height: 100% !important;
+    width: 100% !important;
+    z-index: 0;
+}
+
+#navigation-tab{
+    position: absolute;
+    min-width: 200px;
+    max-width: 200px;
+    z-index: 10;
+    right: 10px;
+    background-color: white;
+    float:right;
+    top: 90px;
+    border: 1px solid var(--darkBlueMain);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--darkMain);
+}
+
+.tab-title{
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--blue);
+    color: var(--darkBlueMain);
+}
+
+.navigationInsideWrapper{
+    padding: 15px;
+}
+
+.step-selector-input-wrapper{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size: 30px;
+    
+}
+
+.step-selector-input-center{
+    text-align: center !important;
+    max-width: 150px  !important;
+}
+
+.step-selector-button{
+    color: var(--darkMain) !important;
+    background-color: var(--blue) !important;
+    width: 100%;
+}
+
+.step-selector-button:hover{
+    background-color: var(--blurOrange) !important;
+    color: var(--darkMain);
+}
+
+.arrows{
+    font-size: 55px;
+    float: left;
+    color: var(--blue);
+}
+
+.arrows-wrapper{
+    margin-top: 40px;
+    border-top: 1px solid var(--blue);
+    padding-top: 30px;
+    padding-bottom: 0;
+}
+
+.arrows:last-child{
+    float: right;
+    right: 0px;
+}
+
+.arrows:hover{
+    color: var(--blurOrange);
+}
+
+.top-bar-wrapper{
+    width: 100%;
+    height: 20px;
+    color: var(--darkMain);
+    background-color: var(--darkBlueMain);
+}
+
+.current-step-number{
+    position: absolute;
+    margin: 10px auto;
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    z-index: 20;
+    width: 100%;
+    text-align: center;
+    top: 25px;
+}
+
+.property-tab{
+    position: absolute;
+    min-width: 200px;
+    max-width: 200px;
+    z-index: 10;
+    left: 10px;
+    background-color: white;
+    float:left;
+    top: 90px;
+    border: 1px solid var(--darkBlueMain);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--darkMain);
+}
+
+.property-line-wrapper{
+    padding: 5px 10px;
+    margin: 5px 0px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--blue);
+}
+
+.tab-active-selection{
+    padding: 5px 10px;
+    margin: 5px 0px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--blue);
+    background-color: var(--blurOrange);
+}
+
+.property-line-wrapper:last-child{
+    border-bottom: none;
+}
+
+
+.property-title{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.property-value{
+    font-size: 12px;
+}
+
+
+.footer{
+    bottom: 0px;
+    height: 25px;
+    padding: 3px 0px 3px;
+    font-size: 14px;
+    position: fixed;
+    background-color: var(--darkBlueMain);
+    width: 100%;
+    color: white;
+    border-top: 1px solid var(--blue);
+    text-align: center;
+}
+
+.footer-inside-wrapper{
+    bottom: 8px;
+    padding-bottom: 15px;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: white;
+}
+
+/* Bottom bar */
+.bottombar-div-wrapper{
+    z-index: 300;
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    bottom: 65px;
+    right: 0px;
+    min-width: 70%;
+    margin-right: 15%;
+    border-radius: 20px;
+    border: 1px solid var(--darkBlueMain);
+    min-height: 85%;
+    max-height: 85%;
+}
+
+.bottombar-div-wrapper-title{
+    font-size: 30px;
+    font-weight: 700;
+    padding: 10px;
+    color: var(--darkMain);
+    width: 90%;
+    border-bottom: 1px solid var(--darkBlueMain);
+    margin: 10px auto;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.layers-wrapper{
+    overflow-x: hidden;
+    flex-direction: column;
+    display: flex;
+    position:relative;
+    padding: 30px;
+    padding-bottom: 50px;
+}
+
+.layers-wrapper-titles{
+    padding: 31px;
+    padding-bottom: 10px;
+    font-weight: 750;
+}
+
+.layers-wrapper-inside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    height: 70vh;
+}
+
+.scoll-wrapper{
+    width: 65vw;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+
+.layers-wrapper-inside:first{
+    overflow-y: hidden;
+}
+
+/* Toggle button */
+.toggle-button-report{
+    position: absolute;
+    z-index: 25;
+    right: 5%;
+    bottom: 60px;
+    font-size: 40px !important;
+    color: var(--darkBlueMain);
+}
+
+.not-visible{
+    display: none;
+}
+
+.rotated-by-180{
+    transform: rotate(180deg);
+}
+
+.brickDataRow-wrapper{
+    width: 100%;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    color: var(--darkMain);
+}
+
+.brick-data-column{
+    background-color: white;
+    float: left;
+    display: block;
+    width: 12vh;
+    padding: 5px;
+    border: 1px solid var(--darkBlueMain);
+}
+
+.previous-brick-data{
+    color: white;
+    background-color: var(--green);
+}
+
+.current-brick-highlighted{
+    color: var(--darkMain);
+    background-color: var(--blurOrange);
+}
+
+.model-loading-message-wrapper{
+    background-color: white;
+    opacity: 70%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.model-loading-message{
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    font-weight: 700;
+    color: var(--darkBlueMain);
+}
+
+.loading-gif{
+    width: 30vw;
+    height: 25vh;
+}
+
+#model-loading-message-figure{
+    padding-top: 30vh;
+}
+
+.brickDataRow-wrapper{
+    width: 100%;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    color: var(--darkMain);
+}
+
+.brickLayer-wrapper{
+    font-size: 22px;
+    font-weight: 750;
+    padding: 10px 0px 10px;
+    text-transform: capitalize;
+}
+
+.brick-data-column{
+    background-color: white;
+    float: left;
+    display: block;
+    width: 10vw;
+    padding: 5px;
+    border: 1px solid var(--darkBlueMain);
+}
+
+.previous-brick-data{
+    color: white;
+    background-color: var(--green);
+}
+
+.current-brick-highlighted{
+    color: var(--darkMain);
+    background-color: var(--blurOrange);
+}
+
+/* layers hidding */
+.layers-hidding-controller-wrapper{
+    min-width:60vw
+}
+
+.brick-data-column-summary{
+    background-color: white;
+    float: left;
+    display: block;
+    width: 30vw;
+    padding: 3px;
+    border: 1px solid var(--darkBlueMain);
+    font-size: 24px;
+}
+
+.brickDataSummaryRow-wrapper{
+    padding: 30px 0px 10px;
+}
+
+.brick-data-column-summary-takeoff-title{
+    margin: 0px;
+    font-size: 20px;
+    padding-top: 0px;
+    font-weight: 700;
+}
+
+.brickSummaryWrapper{
+    padding-bottom: 20px;
+}
+
+.brick-data-column-items-title{
+    padding-bottom: 5px;
+    margin: 0px;
+    font-size: 20px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+.ConstructionFinishEstimation-wrapper{
+    position: relative;
+    right: 5px;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    z-index: 20;
+    text-align: center;
+    top: 2px;
+    padding: 5px;
+    float: right;
+    min-width: 15vw;
+}
+
+.ConstructionFinishEstimation-title{
+    margin: 5px 0px 0px;
+    position: relative;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.ConstructionFinishEstimation-value{
+    margin: 10px 0px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.hideShowIcon{
+    margin-left: -30px !important;
+    min-width: 30px;
+    text-align: right;
+}
+
+.SingleLayerDataContainer-wrapper{
+    border-bottom: 1px solid var(--darkBlueMain);
+}
+
+.color-progress-panel{
+    height: 80px;
+    margin-left:10px;
+    z-index: 25;
+    float: left;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--blue);
+    border-radius: 3px;
+}
+
+.color-progress-bar{
+    color: var(--darkBlueMain);
+    display: block;
+}
+
+.progressBarWrapper{
+    z-index: 30;
+    position: relative;
+    min-width:12vw;
+    max-height: 10px;
+    height: 10px;
+    font-size: 10px;
+    margin-left: 10px;
+    padding: 1px;
+}
+
+.progressBarContent{
+    width: 30%;
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
+    float: left;
+    height: 100%;
+    max-height: 10px;
+    border-radius: 2px;
+}
+
+.progressBar-color-name{
+    float: right;
+    display: block;
+    font-size: 10px;
+    margin-top: -5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.progressBarContent-wrapper{
+    min-width: 10vw;
+    float: left;
+    color: white;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.lcaReport-panel-wrapper{
+    z-index: 25;
+    float: right;
+    display: block;
+    min-width: 15vw;
+    min-height: 80px;
+    margin-top: 0px;
+    color: var(--darkBlueMain);
+    margin-right: 10px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+}
+
+.lcaReport-title{
+    font-weight: 700;
+    margin: 0px;
+    float: left;
+}
+
+.lcaReport-value{
+    float:right;
+    text-align: right;
+    min-width: 75%;
+    font-weight: 500;
+}
+
+.lcaReport-wrapper{
+    padding: 8px
+}
+
+.drag-and-drop-div-wrapper{
+    z-index: 200;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    top: 0;
+}
+
+.file-loader-open-button-wrapper{
+    position: absolute;
+    z-index: 25;
+    left: 5%;
+    bottom: 60px;
+    font-size: 40px !important;
+    color: var(--darkBlueMain);
+}
+
+.file-loader-close-button-wrapper{
+    position: absolute;
+    z-index: 205;
+    width: 100%;
+    text-align: center;
+    top: 50vh;
+}
+
+.file-loader-close-button{
+    font-size: 25px !important;
+    margin: auto;
+    width: 12vw;
+    background-color: rgba(168, 14, 14, 0.712);
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    height: 45px;
+}
+
+.file-loader-close-button:hover{
+    cursor: pointer;
+}
+
+.drag-and-drop-building-icon-wrapper{
+    position: absolute;
+    z-index: 205;
+    font-size: 70px;
+    color: var(--darkBlueMain);
+    text-align: center;
+    top: 35vh;
+    margin: auto;
+    width:100%;
+}
+
+.drag-and-drop-text-div-wrapper{
+    position: absolute;
+    z-index: 205;
+    margin: auto;
+    font-size: 30px !important;
+    color: var(--darkBlueMain);
+    width:100%;
+    text-align: center;
+    top:45vh
+}
+
+.graph_interaction_wrapper{
+    min-height: 30vh;
+    z-index: 25;
+    position: absolute;
+    bottom: 30px;
+    background-color: var(--darkBlueMain);
+    border: 3px solid var(--blue);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.graph_ui_query_window-wrapper{
+    min-width: 50vw;
+    padding: 10px;
+}
+
+.qraph_ui_query_input-wrapper{
+    min-width: 50vw;
+    padding: 10px;
+}
+
+.graph-interaction-input{
+    background-color: rgba(255, 255, 255, 0.7);
+    display: block;
+    width: 50%;
+    position:relative;
+    height: 25vh;
+    float: left;
+
+}
+
+.session-management{
+    font-size: 20px;
+    float: left;
+    display: block;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.querrySendButton{
+    min-width: 25%;
+    max-width: 25%;
+    min-height: 20px;
+    max-height: 20px;
+    z-index: 300;
+    background-color: var(--blurOrange);
+    font-weight: 500;
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 15vw
+}
