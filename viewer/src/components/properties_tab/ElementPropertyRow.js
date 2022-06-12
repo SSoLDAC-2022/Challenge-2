@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ElementPropertyRow = ({key, name, value, isOpen}) => {
+const ElementPropertyRow = ({name, value, isOpen}) => {
 
   const baseClass = 'property-line-wrapper'
 
@@ -11,11 +11,9 @@ const ElementPropertyRow = ({key, name, value, isOpen}) => {
     if (isOpen){
       setCls(cls===baseClass?`${baseClass} tab-active-selection`:baseClass)
     }
-    console.log(isOpen)
   }
 
   return (<div className = {cls}
-               key={`${key}`}
                onClick={onClick}>
             <div className='property-title'>
               {name}

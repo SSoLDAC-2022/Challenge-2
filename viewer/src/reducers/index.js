@@ -7,6 +7,7 @@ import {setSelectedElementReducer} from "./viewer/setSelectedElementReducer"
 import { setSessionReducer } from "./viewer/setSessionReducer";
 import { setQueryOutputReducer } from "./queries/setQueryOutputReducers";
 import { setQueryReducer } from "./queries/setQueryReducer";
+import { setParametersTranslatorReducer } from "./viewer/setParametersTranslatorReducer";
 
 export default combineReducers({
     fileLoaderVisibility: setFileLoaderVisibilityReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     selectedElement: setSelectedElementReducer,
     session: setSessionReducer,
     outputMessage: setQueryOutputReducer,
-    query: setQueryReducer
+    query: setQueryReducer,
+    translator: setParametersTranslatorReducer,
 });

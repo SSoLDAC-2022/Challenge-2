@@ -7,6 +7,7 @@ const NewDataInputWindow = (props) => {
 
   useEffect(() => {
     setInput(props.message)
+    console.log(props.dictionary)
   }, [props.message])
 
   return (
@@ -14,7 +15,7 @@ const NewDataInputWindow = (props) => {
       <textarea  type="text" 
                  name="name" 
                  className='graph-interaction-input' 
-                 value={input}
+                 value={JSON.stringify(input)}
                  onChange={(e) => {setInput(e.target.value)}}/>
     </div>
   )
@@ -22,7 +23,8 @@ const NewDataInputWindow = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    message: state.outputMessage.message
+    message: state.outputMessage.message,
+    dictionary: state.translator.dictionary
   }
 }
 
